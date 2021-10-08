@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Vehicle Details
+{% endblock %}
+
+{% block main %}
+    <h3>Bookings</h3>
+    <table>
+        <thead>
+            <tr>
+                <td>Ramp Code</td>
+                <td>Vehicle Registration</td>
+                <td>Vehicle Make</td>
+                <td>Owner</td>
+                <td>Date</td>
+                <td>Start Time</td>
+                <td>End Time</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking[0] }}</td>
+                    <td>{{ booking[1] }}</td>
+                    <td>{{ booking[2] }}</td>
+                    <td>{{ booking[3] }} {{ booking[4] }}</td>
+                    <td>{{ booking[5] }}</td>
+                    <td>{{ booking[6] }}</td>
+                    <td>{{ booking[7] }}</td>
+                </tr>
+                {% endfor %}
+    
+        </tbody>
+    </table>
+{% endblock %}

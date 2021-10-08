@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Vehicle Details
+{% endblock %}
+
+{% block main %}
+    <h3>Dealers</h3>
+    <table>
+        <thead>
+            <tr>
+                <td>Dealer Code</td>
+                <td>Dealer Name</td>
+                <td>Zone</td>
+                <td>Region</td>
+                <td>Postcode</td>
+                <td>Opens</td>
+                <td>Closes</td>
+                <td>Labour Cost</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dealer in dealers %}
+            <tr>
+                <td>{{ dealer[0] }}</td>
+                <td>{{ dealer[9] }}</td>
+                <td>{{ dealer[1] }}</td>
+                <td>{{ dealer[2] }}</td>
+                <td>{{ dealer[3] }}</td>
+                <td>{{ dealer[6] }}</td>
+                <td>{{ dealer[7] }}</td>
+                <td>{{ dealer[8] }}</td>
+
+                <td><a href = "dealer" style = "color:black" ><i class="fa fa-trash"></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href = "new_dealer"> Add New Dealer </a>
+{% endblock %}

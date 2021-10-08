@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    New Booking
+{% endblock %}
+
+{% block main %}
+    <form action="/booking_confirm" method="post">
+        <select class="form-control" name = "dealer">
+            <option>{{ dealers }}</option>
+        </select>
+        <select class="form-control" name = "vehicle">
+            <option> {{vehicles}}</option>
+        </select>
+        <select class="form-control" name = "date" type = 'date'>
+            <option type = 'date' > {{date}} </option>
+        </select>
+        <select class="form-control" name = "start_time", type = "time">
+            <option selected=""> Select Time</option>
+            {% for time in times %}
+                <option>{{ time[0] }}</option>
+            {% endfor %}
+        </select>
+        <button class="btn btn-primary" type="submit">Book</button>
+    </form>
+{% endblock %}

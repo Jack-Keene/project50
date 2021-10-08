@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Dealer
+{% endblock %}
+
+{% block main %}
+<div class = "card bg-light">
+    <article class = "card-body mx-auto" style = "max-width: 400px;">
+        <h3 class = "card-title mt-3 text-center"> Add New Dealer</h3>
+            <hr>
+        <form action="/dealer_info" method="post">
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                </div>
+                <input value = "{{dealer_info[0][9]}}" autofocus autocomplete = "off" name="dealer_name" class="form-control" type="text" readonly>
+            </div>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
+                </div>
+                <input value = "{{dealer_info[0][1]}}" autofocus autocomplete = "off" name="dealer_name" class="form-control" type="text" readonly>
+                <input value = "{{dealer_info[0][2]}}" autofocus autocomplete = "off" name="dealer_name" class="form-control" type="text" readonly>
+            </div> 
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-home"></i> </span>
+                 </div>
+                 <input value = "{{dealer_info[0][5]}}" autofocus autocomplete = "off" name="number" class="form-control" type="text">
+                 <input value = "{{dealer_info[0][4]}}" autofocus autocomplete = "off" name="street" class="form-control" type="text">
+                </div>
+            
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-home"></i> </span>
+                 </div>
+                 <input value = "{{dealer_info[0][3]}}" autofocus autocomplete = "off" name="postcode" class="form-control" type="text">
+            </div>
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-calendar"></i> </span>
+                 </div>
+                 <input value = "{{dealer_info[0][6]}}" autofocus autocomplete = "off" name="open_time" class="form-control" type="time">
+                 <input value = "{{dealer_info[0][7]}}" autofocus autocomplete = "off" name="close_time" class="form-control" type="time">
+            </div>
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-check"></i> </span>
+                 </div>
+                 <input value = "{{dealer_info[0][8]}}" autofocus autocomplete = "off" name="labour_cost" class="form-control" type="real">
+            </div>
+
+
+            <button class="btn btn-primary" type="submit">Update</button>
+        </form>    
+    </article>
+</div>
+
+    <hr>
+    Already a member?
+    <a href = "login"> Login here. </a>
+{% endblock %}

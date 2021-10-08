@@ -1,0 +1,97 @@
+        # cur.execute("""CREATE TABLE users (
+        #             id SERIAL PRIMARY KEY,
+        #             first_name VARCHAR(255) NOT NULL,
+        #             last_name VARCHAR(255) NOT NULL,
+        #             email_address VARCHAR (255) NOT NULL,
+        #             username VARCHAR (255) NOT NULL,
+        #             hashed VARCHAR (255) NOT NULL,
+        #             postcode VARCHAR (255) NOT NULL,
+        #             street VARCHAR (255) NOT NULL,
+        #             number VARCHAR (255) NOT NULL,
+        #             phone_number VARCHAR(11) NOT NULL,
+        #             type VARCHAR (255) NOT NULL
+        #         );""")
+
+        # cur.execute(""" CREATE TABLE vehicles (
+        #             id SERIAL PRIMARY KEY,
+        #             registration VARCHAR(255),
+        #             owner_id SERIAL NOT NULL,
+        #             make VARCHAR(255) NOT NULL,
+        #             model VARCHAR(255) NOT NULL,
+        #             year VARCHAR(4) NOT NULL,
+        #             mot_date DATE NOT NULL,
+        #             CONSTRAINT fk_customer
+        #                 FOREIGN KEY(owner_id)
+        #                     REFERENCES users(id)
+        #             );
+        #         """)
+        
+        # cur.execute(""" CREATE TABLE dealer (
+        #             dealer_code SERIAL PRIMARY KEY,
+        #             zone VARCHAR(255) NOT NULL,
+        #             region VARCHAR(255) NOT NULL,
+        #             postcode VARCHAR(255) NOT NULL,
+        #             street VARCHAR(255) NOT NULL,
+        #             number VARCHAR(255) NOT NULL,
+        #             open_time TIME NOT NULL,
+        #             close_time TIME NOT NULL,   
+        #             labour_cost REAL NOT NULL
+                #     );
+                # """)
+
+        # cur.execute(""" CREATE TABLE ramp (
+        #             ramp_id SERIAL PRIMARY KEY,
+        #             dealer_code SERIAL NOT NULL,
+        #             CONSTRAINT fk_dealer
+        #                 FOREIGN KEY(dealer_code)
+        #                     REFERENCES dealer(dealer_code)
+        # )        
+        #  """)
+
+
+        # cur.execute(""" CREATE TABLE booking (
+        #             job_id SERIAL PRIMARY KEY,
+        #             ramp_id INTEGER NOT NULL,
+        #             owner_id INTEGER NOT NULL,
+        #             vehicle_id INTEGER NOT NULL,
+        #             start_time TIMESTAMP NOT NULL,
+        #             end_time TIMESTAMP NOT NULL,
+        #             CONSTRAINT fk_ramp FOREIGN KEY(ramp_id) REFERENCES ramp(ramp_id),
+        #             CONSTRAINT fk_customer FOREIGN KEY(owner_id) REFERENCES users(id),
+        #             CONSTRAINT fk_vehicle FOREIGN KEY(vehicle_id) REFERENCES vehicles(id)
+        # );        
+        #  """)
+       
+        # cur.execute(""" CREATE TABLE invoice (
+        #             invoice_id SERIAL PRIMARY KEY,
+        #             job_id INTEGER NOT NULL,
+        #             dealer_code INTEGER NOT NULL,
+        #             invoice_type VARCHAR(255) NOT NULL,
+        #             part_number VARCHAR(255),
+        #             invoice_value real NOT NULL,
+        #             invoice_date TIMESTAMP NOT NULL,
+        #             CONSTRAINT fk_job FOREIGN KEY(job_id) REFERENCES booking(job_id),
+        #             CONSTRAINT fk_dealer FOREIGN KEY(dealer_code) REFERENCES dealer(dealer_code)
+        # );        
+        #  """)
+
+        # cur.execute(""" CREATE TABLE customer_quality (
+        #             id SERIAL PRIMARY KEY,
+        #             job_id INTEGER NOT NULL,
+        #             overall INTEGER NOT NULL,
+        #             speed INTEGER NOT NULL,
+        #             quality INTEGER NOT NULL,
+        #             submit_date TIMESTAMP NOT NULL,
+        #             CONSTRAINT fk_job FOREIGN KEY(job_id) REFERENCES booking(job_id)
+        # );        
+        #  """)
+
+        # cur.execute(""" CREATE TABLE availability (
+        #             slot_id SERIAL PRIMARY KEY,
+        #             job_id INTEGER NOT NULL,
+        #             availability BOOLEAN NOT NULL DEFAULT TRUE,
+        #             start_time TIMESTAMP NOT NULL,
+        #             end_time TIMESTAMP NOT NULL,
+        #             CONSTRAINT fk_job FOREIGN KEY(job_id) REFERENCES booking(job_id)
+        # );        
+        #  """)

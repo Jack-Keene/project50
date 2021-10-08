@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    New Booking
+{% endblock %}
+
+{% block main %}
+<h3>Unpaid Bookings</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Invoice Number</td>
+            <td>Vehicle Registration</td>
+            <td>Vehicle Make</td>
+            <td>Date</td>
+    </tr>
+    </thead>
+    <tbody>
+        <tbody>
+            {% for invoice in bookings %}
+            <tr>
+                <td>{{ invoice[0] }}</td>
+                <td>{{ invoice[2] }}</td>
+                <td>{{ invoice[3] }}</td>
+                <td>{{ invoice[6] }}</td>
+        </tr>
+            {% endfor %}
+
+    </tbody>
+</table>
+    <h3>Previous Invoices</h3>
+    <table>
+        <thead>
+            <tr>
+                <td>Invoice Number</td>
+                <td>Vehicle Registration</td>
+                <td>Vehicle Make</td>
+                <td>Date</td>
+                <td>Value</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                {% for invoice in paid %}
+                <tr>
+                    <td>{{ invoice[0] }}</td>
+                    <td>{{ invoice[1] }}</td>
+                    <td>{{ invoice[2] }}</td>
+                    <td>{{ invoice[3] }}</td>
+                    <td>£{{ invoice[4] }}</td>
+
+                </tr>
+                {% endfor %}
+    
+        </tbody>
+    </table>
+{% endblock %}

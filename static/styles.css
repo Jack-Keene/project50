@@ -1,0 +1,94 @@
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.image {
+    opacity: 1;
+    transition: 0.5s ease;
+    backface-visibility: hidden;
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+}
+.thumbnail:hover .middle {
+    opacity: 1;
+    transition: 1s ease;
+}
+
+.thumbnail:hover .image {
+    opacity: 0.5;
+    transition: 0.5s ease;
+
+}
+
+.text {
+  background-color: #134B5D;
+  color: white;
+  font-size: 32px;
+  padding: 16px 32px;
+  text-align: center;
+}
+
+.form-group {
+    width: auto;
+}
+
+/* Container holding the image and the text */
+.container {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+
+.navbar-brand {
+    font-size: 40px !important;
+}
+
+.navbar-brand:hover {    
+    color:black !important;
+    transition: 0.5s ease;
+}
+
+.navbar {
+    opacity: 0.8;
+    background-color: #FFFFFF;
+}
+
+table, th, td {
+    padding: 10px;
+    border: solid;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+thead {
+    background: #a9a9a9;
+    font-weight: bold;
+}
+
+.center {
+    left:50%
+}
+
+.map-container{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.map-container iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+

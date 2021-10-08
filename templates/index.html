@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+
+{% if session.access == 2  %}
+<h1>Welcome to Autoview - Dealer View</h1>
+<div class="container" >
+    <div class = "row no-gutters">
+        <div class = "col thumbnail">
+            <a href="/view_bookings">
+                <img class = "image" src="/static/img/sports_bg.jpg" width="500px">
+                <div class="middle">
+                    <div class = "text">Bookings</div>
+                </div>
+            </a>
+        </div>
+        <div class = "col thumbnail">
+            <a href="/dealer_info">
+                <img class = "image" src="/static/img/depositphotos_9603636-stock-photo-luxury-suv.jpg" width="500px">
+                <div class="middle">
+                    <div class = "text">My Dealer</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+{% elif session.access == 1  %}
+<h1>Welcome to Autoview</h1>
+<div class="container" >
+    <div class = "row no-gutters">
+        <div class = "col thumbnail">
+            <a href="/booking">
+                <img class = "image" src="/static/img/sports_bg.jpg" width="500px">
+                <div class="middle">
+                    <div class = "text">New Booking</div>
+                </div>
+            </a>
+        </div>
+        <div class = "col thumbnail">
+            <a href="/customer_invoice">
+                <img class = "image" src="/static/img/depositphotos_9603636-stock-photo-luxury-suv.jpg" width="500px">
+                <div class="middle">
+                    <div class = "text">Invoices</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

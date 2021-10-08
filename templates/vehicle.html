@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Vehicle Details
+{% endblock %}
+
+{% block main %}
+    <h3> Add New Vehicle</h3>
+    <form action="/vehicle" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="registration" placeholder="Vehicle registration" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Add Vehicle</button>
+    </form>
+    <h3>My Vehicles</h3>
+    <table>
+        <thead>
+            <tr>
+                <td>Registration</td>
+                <td>Make</td>
+                <td>Colour</td>
+                <td>Year</td>
+                <td>MOT Date</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vehicle in vehicles %}
+            <tr>
+                <td>{{ vehicle[1] }}</td>
+                <td>{{ vehicle[3] }}</td>
+                <td>{{ vehicle[4] }}</td>
+                <td>{{ vehicle[5] }}</td>
+                <td>{{ vehicle[6] }}</td>
+                <td><a href = "vehicle" style = "color:black" ><i class="fa fa-trash"></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    New Booking
+{% endblock %}
+
+{% block main %}
+<h3>Unpaid Bookings</h3>
+    <form action = "/invoice" method="POST">
+        <select class="form-control" name = "booking", type = "text">
+            <option selected=""> Select Invoice</option>
+            {% for booking in bookings %}
+                <option>{{ booking[0] }} | {{ booking[2] }} | {{ booking[4] }} {{ booking[5] }}  | {{ booking[6] }}</option>
+            {% endfor %}
+        </select>
+        <input autofocus autocomplete = "off" name="hours" class="form-control" placeholder="Number of Hours" type="number">
+
+        <button class="btn btn-primary" type="submit">Create Invoice</button>
+    </form>
+
+    <h3>Previous Bookings</h3>
+    <table>
+        <thead>
+            <tr>
+                <td>Invoice Number</td>
+                <td>Vehicle Registration</td>
+                <td>Vehicle Make</td>
+                <td>Owner</td>
+                <td>Date</td>
+                <td>Value</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                {% for invoice in paid %}
+                <tr>
+                    <td>{{ invoice[0] }}</td>
+                    <td>{{ invoice[1] }}</td>
+                    <td>{{ invoice[2] }}</td>
+                    <td>{{ invoice[3] }} {{ invoice[4] }}</td>
+                    <td>{{ invoice[5] }}</td>
+                    <td>£{{ invoice[6] }}</td>
+                </tr>
+                {% endfor %}
+    
+        </tbody>
+    </table>
+{% endblock %}

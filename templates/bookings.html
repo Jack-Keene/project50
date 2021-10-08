@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    New Booking
+{% endblock %}
+
+{% block main %}
+
+<h3>New Booking</h3>
+<!-- Map View -->
+<div id="map-container-google-1" class="z-depth-1-half map-container">
+    <iframe src="https://www.google.com/maps/d/embed?mid=1sYNHxPCpGQ5bAUcUeTIKypoWrnf9-dIk&hl=en" frameborder="0"
+      style="border:0" ></iframe>
+  </div> 
+    <form action="/booking" method="post">
+        <select class="form-control" name = "dealer">
+            <option selected=""> Select Dealer</option>
+            {% for dealer in dealers %}
+                <option>{{ dealer[0] }}</option>
+            {% endfor %}
+        </select>
+        <select class="form-control" name = "vehicle">
+            <option selected=""> Select Vehicle</option>
+            {% for vehicle in vehicles %}
+                <option>{{ vehicle[0] }} | {{ vehicle[1] }}</option>
+            {% endfor %}
+        </select>
+        <div class="input-group date" data-provide="datepicker"> 
+            <input class="form-control" id="date" name="date" type="date"/>
+        </div>
+        <button class="btn btn-primary" type="submit">Check Availability</button>
+    </form>
+
+<h3>Upcoming Bookings</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Booking ID</td>
+            <td>Vehicle Registration</td>
+            <td>Vehicle Make</td>
+            <td>Location</td>
+            <td>Date</td>
+            <td>Start Time</td>
+            <td>End Time</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tbody>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking[0] }}</td>
+                <td>{{ booking[1] }}</td>
+                <td>{{ booking[2] }}</td>
+                <td>{{ booking[3] }}</td>
+                <td>{{ booking[4] }}</td>
+                <td>{{ booking[5] }}</td>
+                <td>{{ booking[6] }}</td>
+            </tr>
+            {% endfor %}
+
+    </tbody>
+</table>
+{% endblock %}

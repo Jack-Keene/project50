@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Vehicle Details
+{% endblock %}
+
+{% block main %}
+    <h3> Add New Ramp</h3>
+    <form action="/ramp" method="post">
+        <button class="btn btn-primary" type="submit">Add Ramp</button>
+    </form>
+    <h3>My Ramps</h3>
+    <table>
+        <thead>
+            <tr>
+                <td>Ramp ID</td>
+                <td>Dealer Code</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                {% for ramp in ramps %}
+                <tr>
+                    <td>{{ ramp[0] }}</td>
+                    <td>{{ ramp[1] }}</td>
+                    <td><a href = "ramp" style = "color:black" ><i class="fa fa-trash"></a></td>
+                </tr>
+                {% endfor %}
+    
+        </tbody>
+    </table>
+{% endblock %}

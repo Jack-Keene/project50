@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Vehicle Details
+{% endblock %}
+
+{% block main %}
+    <form action="/vehicle" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="registration" placeholder="Vehicle registration" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Add Vehicle</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <td>Make</td>
+                <td>Colour</td>
+                <td>Year</td>
+                <td>MOT Date</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ vehicle_detail.get("make") }}</td>
+                <td>{{ vehicle_detail.get("model") }}</td>
+                <td>{{ vehicle_detail.get("year") }}</td>
+                <td>{{ vehicle_detail.get("mot_date") }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

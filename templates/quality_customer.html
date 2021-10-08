@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    New Booking
+{% endblock %}
+
+{% block main %}
+<h3>Customer Feedback</h3>
+    <form action="/quality" method="post">
+        <select class="form-control" name = "booking">
+            <option selected=""> Select Booking</option>
+            {% for booking in bookings %}
+                <option>{{ booking[0] }} | {{ booking[1] }} | {{ booking[3] }} - {{ booking[2] }}</option>
+            {% endfor %}
+        </select>
+        <select class="form-control" name = "overall">
+            <option selected=""> Overall Satifaction</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        <select class="form-control" name = "speed">
+            <option selected=""> Ease of Booking </option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        <select class="form-control" name = "quality">
+            <option selected=""> Quality of Work Carried Out</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+{% endblock %}
